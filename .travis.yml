@@ -14,3 +14,9 @@ after_success:
   - docker build -t lynuslyell/multi-nginx ./nginx
   - docker build -t lynuslyell/multi-server ./server
   - docker build -t lynuslyell/multi-worker ./worker
+
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKERID" --password-stdin
+  - docker push lynusevangelista/multi-client
+  - docker push lynusevangelista/multi-nginx
+  - docker push lynusevangelista/multi-server
+  - docker push lynusevangelista/multi-worker
