@@ -10,7 +10,7 @@ services:
   api:
     build:
       context: ./server
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.dev
     volumes:
       - /app/node_modules
       - ./server:/app
@@ -27,7 +27,7 @@ services:
   client:
     build:
       context: ./client
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.dev
     volumes:
       - /app/node_modules
       - ./client:/app
@@ -38,7 +38,7 @@ services:
   worker:
     build:
       context: ./worker
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.dev
     volumes:
       - /app/node_modules
       - ./worker:/app
@@ -52,6 +52,6 @@ services:
       - client
     build:
       context: ./nginx
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.dev
     ports:
      - '3050:80'
